@@ -1,4 +1,4 @@
-# Handyman Services Website
+# Mestar u Diru - Handyman Services
 
 A modern, responsive website for handyman services built with Next.js 15, TypeScript, and Tailwind CSS.
 
