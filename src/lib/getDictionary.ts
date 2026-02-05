@@ -1,8 +1,10 @@
-import en from "@/lib/locales/en";
-import hr from "@/lib/locales/hr";
+import type { Locale } from "./locales";
 
-export function getDictionary(locale: string) {
-  return locale === "hr" ? hr : en;
+export async function getDictionary(locale: Locale) {
+  const dictionaries = {
+    en: () => import("./locales/en").then((m) => m.default),
+    hr: () => import("./locales/hr").then((m) => m.default),
+  };
+
+  return dictionaries[locale]();
 }
-
-export default getDictionary;
