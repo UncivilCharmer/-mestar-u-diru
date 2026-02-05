@@ -53,12 +53,13 @@ type ContactDict = {
 
 const hr = {
   hero: {
-    title: "Usluge majstora u Dubrovniku",
+    title: "Usluge kućnog majstora u Dubrovniku",
     paragraphs: [
-      "Hvala što ste posjetili.",
-      "Zovem se Đani i tu sam da pomognem sa svim Vašim potrebama održavanja.",
-      "Specijaliziram se za održavanje nekretnina dok ste odsutni, predsezonske popravke apartmana za najam i sve od sastavljanja namještaja do uređenja vrta.",
-      "Vjerujem u organiziranost, točnost, pouzdanost i iskrenost. Dopustite mi da se pobrinem za posao dok Vi uživate u miru.",
+      "Hvala vam što ste navratili.",
+      "Ja sam Đani, lokalni majstor i stojim vam na raspolaganju za sve poslove održavanja doma i apartmana.",
+      "SBavim se redovnim održavanjem nekretnina, pripremom apartmana prije sezone, kao i raznim popravcima i zahvatima – od montaže namještaja do uređenja okućnice.",
+      "Radim uredno, na vrijeme i odgovorno. Držim se dogovora i volim da je posao napravljen kako treba.",
+      "Vi bez brige, ja ću se pobrinuti za sve ostalo.",
     ],
     bullets: ["Organiziran", "Pouzdan i iskren", "Besplatna procjena"],
     buttons: {
