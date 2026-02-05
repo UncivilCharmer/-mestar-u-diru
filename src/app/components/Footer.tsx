@@ -8,9 +8,33 @@ import {
   YouTubeIcon,
 } from "@/components/ui/social-icons";
 
-export default function Footer() {
+type FooterDict = {
+  servicesTitle?: string;
+  contactTitle?: string;
+  businessInfoTitle?: string;
+  labels?: {
+    phone?: string;
+    email?: string;
+    serviceArea?: string;
+    hours?: string;
+    oib?: string;
+    iban?: string;
+  };
+};
+
+export default function Footer({ dict }: { dict?: FooterDict }) {
+  const servicesTitle = dict?.servicesTitle ?? "Services";
+  const contactTitle = dict?.contactTitle ?? "Contact";
+  const businessInfoTitle = dict?.businessInfoTitle ?? "Business Info";
+  const labels = {
+    phone: dict?.labels?.phone ?? "Phone:",
+    email: dict?.labels?.email ?? "Email:",
+    serviceArea: dict?.labels?.serviceArea ?? "Service Area:",
+    hours: dict?.labels?.hours ?? "Hours:",
+  };
+
   return (
-    <footer className="bg-primary text-primary-foreground py-12 px-4">
+    <footer className="bg-zinc-950 text-white py-12 px-4 border-t border-zinc-800">
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Business Info */}
@@ -19,15 +43,15 @@ export default function Footer() {
               <Hammer className="w-6 h-6" />
               <span className="font-bold text-lg">{BUSINESS_INFO.name}</span>
             </div>
-            <p className="text-sm text-primary-foreground/80">
+            <p className="text-sm text-gray-400">
               {BUSINESS_INFO.description}
             </p>
           </div>
 
           {/* Services */}
           <div className="space-y-4">
-            <h3 className="font-semibold">Services</h3>
-            <ul className="space-y-2 text-sm text-primary-foreground/80">
+            <h3 className="font-semibold">{servicesTitle}</h3>
+            <ul className="space-y-2 text-sm text-gray-400">
               {SERVICES.map((service) => (
                 <li key={service}>{service}</li>
               ))}
@@ -36,18 +60,18 @@ export default function Footer() {
 
           {/* Contact */}
           <div className="space-y-4">
-            <h3 className="font-semibold">Contact</h3>
-            <ul className="space-y-2 text-sm text-primary-foreground/80">
-              <li>Phone: <a className="text-accent hover:underline font-semibold" href={`tel:${BUSINESS_INFO.phone}`}>{BUSINESS_INFO.phone}</a></li>
-              <li>Email: <a className="text-accent hover:underline font-semibold" href={`mailto:${BUSINESS_INFO.email}`}>{BUSINESS_INFO.email}</a></li>
-              <li>Service Area: {BUSINESS_INFO.serviceArea}</li>
-              <li>Hours: {BUSINESS_INFO.hours}</li>
+            <h3 className="font-semibold">{contactTitle}</h3>
+            <ul className="space-y-2 text-sm text-gray-400">
+              <li>{labels.phone} <a className="text-green-500 hover:underline font-semibold" href={`tel:${BUSINESS_INFO.phone}`}>{BUSINESS_INFO.phone}</a></li>
+              <li>{labels.email} <a className="text-green-500 hover:underline font-semibold" href={`mailto:${BUSINESS_INFO.email}`}>{BUSINESS_INFO.email}</a></li>
+              <li>{labels.serviceArea} {BUSINESS_INFO.serviceArea}</li>
+              <li>{labels.hours} {BUSINESS_INFO.hours}</li>
             </ul>
           </div>
 
           {/* Business Details */}
           <div className="space-y-4">
-            <h3 className="font-semibold">Business Info</h3>
+            <h3 className="font-semibold">{businessInfoTitle}</h3>
             <ul className="space-y-2 text-sm text-primary-foreground/80">
               {BUSINESS_INFO.guarantees.map((guarantee) => (
                 <li key={guarantee}>{guarantee}</li>

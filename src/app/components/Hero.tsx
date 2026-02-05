@@ -1,36 +1,62 @@
-import { ImageWithFallback } from '@/lib/ImageWithFallback';
-import { HeroButtons } from './HeroButtons';
+import { ImageWithFallback } from "@/lib/ImageWithFallback";
+import { HeroButtons } from "./HeroButtons";
 
-export default function Hero() {
+type HeroDict = {
+  title?: string;
+  paragraphs?: string[];
+  bullets?: string[];
+  buttons?: {
+    getFreeQuote?: string;
+    call?: string;
+  };
+};
+
+export default function Hero({ dict }: { dict?: HeroDict }) {
+  const title = dict?.title ?? "Handyman Services in Dubrovnik";
+
+  const paragraphs =
+    dict?.paragraphs ?? [
+      "Thank you for visiting.",
+      "My name is Đani, and I'm here to help with all your home maintenance needs.",
+      "I specialize in property maintenance for people away, pre-season repairs for rental apartments, and everything from furniture assembly to landscaping.",
+      "I believe in being organized, on time, reliable, and honest. Let me take care of the work while you enjoy peace of mind.",
+    ];
+
+  const bullets =
+    dict?.bullets ?? ["Organized", "Reliable & Honest", "Free Estimates"];
+
+  const buttons = {
+    getFreeQuote: dict?.buttons?.getFreeQuote ?? "Get Free Quote",
+    call: dict?.buttons?.call ?? "Call",
+  };
+
   return (
-    <section className="relative bg-gradient-to-br from-background to-secondary/20 py-20 px-4">
+    <section className="relative bg-black py-20 px-4">
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div className="space-y-6">
-          <h1 className="text-4xl lg:text-5xl font-bold text-foreground">
-            Professional Handyman Services
-          </h1>
-          <p className="text-xl text-muted-foreground">
-            Quality repairs and improvements for your home. Licensed, insured, and committed to excellence with over 15 years of experience.
-          </p>
-          <HeroButtons />
-          <div className="flex flex-wrap gap-6 text-sm text-muted-foreground">
-            <div className="flex items-center gap-2">
-              <span className="w-2 h-2 bg-green-500 rounded-full" />
-              Licensed & Insured
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="w-2 h-2 bg-green-500 rounded-full" />
-              Same Day Service
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="w-2 h-2 bg-green-500 rounded-full" />
-              100% Satisfaction Guarantee
-            </div>
+          <h1 className="text-4xl lg:text-5xl font-bold text-white">{title}</h1>
+
+          <div className="space-y-4 text-xl text-gray-300">
+            {paragraphs.map((p, i) => (
+              <p key={i}>{p}</p>
+            ))}
+          </div>
+
+          <HeroButtons getFreeQuote={buttons.getFreeQuote} call={buttons.call} />
+
+          <div className="flex flex-wrap gap-6 text-sm text-gray-400">
+            {bullets.map((b, i) => (
+              <div key={i} className="flex items-center gap-2">
+                <span className="w-2 h-2 bg-green-500 rounded-full" />
+                {b}
+              </div>
+            ))}
           </div>
         </div>
+
         <div className="relative">
-          <ImageWithFallback 
-            src="https://images.unsplash.com/photo-1581166397057-235af2b3c6dd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoYW5keW1hbiUyMHRvb2xzJTIwY29uc3RydWN0aW9uJTIwd29ya2VyfGVufDF8fHx8MTc1NzI1NTEyM3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+          <ImageWithFallback
+            src="/images/hero.jpg.png"
             alt="Professional handyman with tools"
             className="w-full h-[400px] object-cover rounded-lg shadow-lg"
           />
