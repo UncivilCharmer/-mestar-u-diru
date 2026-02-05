@@ -57,7 +57,7 @@ const hr = {
     paragraphs: [
       "Hvala vam što ste navratili.",
       "Ja sam Đani, lokalni majstor i stojim vam na raspolaganju za sve poslove održavanja doma i apartmana.",
-      "SBavim se redovnim održavanjem nekretnina, pripremom apartmana prije sezone, kao i raznim popravcima i zahvatima – od montaže namještaja do uređenja okućnice.",
+      "Bavim se redovnim održavanjem nekretnina, pripremom apartmana prije sezone, kao i raznim popravcima i zahvatima – od montaže namještaja do uređenja okućnice.",
       "Radim uredno, na vrijeme i odgovorno. Držim se dogovora i volim da je posao napravljen kako treba.",
       "Vi bez brige, ja ću se pobrinuti za sve ostalo.",
     ],
