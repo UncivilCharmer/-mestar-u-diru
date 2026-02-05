@@ -20,7 +20,7 @@ export default async function Page({
 }) {
   const { locale } = await params;
 
-  const dict: any = await getDictionary(locale);
+  const dict = await getDictionary(locale);
 
   return (
     <div className="min-h-screen">
