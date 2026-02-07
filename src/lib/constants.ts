@@ -1,7 +1,7 @@
 // Business contact information and constants
 export const BUSINESS_INFO = {
   name: "Meštar u Điru",
-  phone: "(385) 99 830 6086",
+  phone: "+385 99 830 6086",
   email: "info.mestarudiru@gmail.com",
   serviceArea: "Dubrovnik Area",
   serviceRadius: "30-mile radius",
