@@ -68,9 +68,26 @@ const en = {
   },
 
   footer: {
+    description: "Your reliable handyman for property maintenance, pre-season repairs, and home improvements. Organized, on time, and honest work you can count on.",
+    servicesList: [
+      "Property Maintenance",
+      "Pre-Season Repairs",
+      "Furniture Assembly",
+      "Picture Hanging",
+      "Silicone/Sealant Work",
+      "Moisture & Damp Removal",
+      "Electrical Repairs",
+      "Landscaping & Gardening",
+      "Odd Jobs & Errands",
+    ],
     servicesTitle: "Services",
     contactTitle: "Contact",
     businessInfoTitle: "Business Info",
+    followUs: "Follow Us",
+    allRightsReserved: "All rights reserved.",
+    privacyPolicy: "Privacy Policy",
+    termsOfService: "Terms of Service",
+    licenseInfo: "License Info",
     labels: {
       phone: "Phone:",
       email: "Email:",
@@ -241,8 +258,8 @@ const en = {
 
     labels: {
       fullName: "Full Name *",
-      email: "Email Address *",
-      phone: "Phone Number *",
+      email: "Email Address",
+      phone: "Phone Number",
       urgency: "How urgent is this?",
       service: "Type of Service Needed *",
       description: "Project Description",
@@ -261,9 +278,9 @@ const en = {
     submit: "Submit Request",
 
     requiredHint:
-      "* Required fields. We'll contact you within 24 hours to discuss your project and provide a free estimate.",
+      "* Required fields. Please provide email or phone (or both). We'll contact you within 24 hours to discuss your project and provide a free estimate.",
 
-    validationRequired: "Please fill in all required fields",
+    validationRequired: "Please fill in all required fields and provide email or phone number",
     success: "Request submitted successfully! We'll contact you within 24 hours.",
 
     smallText: {

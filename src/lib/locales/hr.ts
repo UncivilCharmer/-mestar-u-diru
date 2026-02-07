@@ -69,9 +69,26 @@ const hr = {
   },
 
   footer: {
+    description: "Pouzdan majstor za održavanje nekretnina, predsezonske popravke i poboljšanja doma. Organizirano i na vrijeme, meštar kojemu možete vjerovati.",
+    servicesList: [
+      "Održavanje nekretnine",
+      "Predsezonski popravci",
+      "Sastavljanje namještaja",
+      "Vješanje slika",
+      "Silikoniranje / brtvljenje",
+      "Vlaga i plijesan",
+      "Rasvjeta / prekidači / utičnice",
+      "Vrt i okućnica",
+      "Dezinfekcija i dubinsko čišćenje",
+    ],
     servicesTitle: "Usluge",
     contactTitle: "Kontakt",
     businessInfoTitle: "Informacije",
+    followUs: "Pratite nas",
+    allRightsReserved: "Sva prava pridržana.",
+    privacyPolicy: "Politika privatnosti",
+    termsOfService: "Uvjeti korištenja",
+    licenseInfo: "Licencne informacije",
     labels: {
       phone: "Telefon:",
       email: "Email:",
@@ -207,8 +224,8 @@ const hr = {
 
     labels: {
       fullName: "Ime i prezime *",
-      email: "Email adresa *",
-      phone: "Broj telefona *",
+      email: "Email adresa",
+      phone: "Broj telefona",
       urgency: "Koliko je hitno?",
       service: "Vrsta usluge *",
       description: "Opis posla",
@@ -227,9 +244,9 @@ const hr = {
     submit: "Pošalji upit",
 
     requiredHint:
-      "* Obavezna polja. Javljamo se unutar 24 sata radi dogovora i besplatne procjene.",
+      "* Obavezna polja. Unesi email ili broj telefona (ili oboje). Javljamo se unutar 24 sata radi dogovora i besplatne procjene.",
 
-    validationRequired: "Molim ispuni sva obavezna polja",
+    validationRequired: "Molim ispuni sva obavezna polja i email ili broj telefona",
     success: "Upit je poslan! Javit ćemo se unutar 24 sata.",
 
     smallText: {

@@ -9,9 +9,16 @@ import {
 } from "@/components/ui/social-icons";
 
 type FooterDict = {
+  description?: string;
+  servicesList?: string[];
   servicesTitle?: string;
   contactTitle?: string;
   businessInfoTitle?: string;
+  followUs?: string;
+  allRightsReserved?: string;
+  privacyPolicy?: string;
+  termsOfService?: string;
+  licenseInfo?: string;
   labels?: {
     phone?: string;
     email?: string;
@@ -23,9 +30,16 @@ type FooterDict = {
 };
 
 export default function Footer({ dict }: { dict?: FooterDict }) {
+  const description = dict?.description ?? BUSINESS_INFO.description;
+  const servicesList = dict?.servicesList ?? SERVICES;
   const servicesTitle = dict?.servicesTitle ?? "Services";
   const contactTitle = dict?.contactTitle ?? "Contact";
   const businessInfoTitle = dict?.businessInfoTitle ?? "Business Info";
+  const followUs = dict?.followUs ?? "Follow Us";
+  const allRightsReserved = dict?.allRightsReserved ?? "All rights reserved.";
+  const privacyPolicy = dict?.privacyPolicy ?? "Privacy Policy";
+  const termsOfService = dict?.termsOfService ?? "Terms of Service";
+  const licenseInfo = dict?.licenseInfo ?? "License Info";
   const labels = {
     phone: dict?.labels?.phone ?? "Phone:",
     email: dict?.labels?.email ?? "Email:",
@@ -44,7 +58,7 @@ export default function Footer({ dict }: { dict?: FooterDict }) {
               <span className="font-bold text-lg">{BUSINESS_INFO.name}</span>
             </div>
             <p className="text-sm text-gray-400">
-              {BUSINESS_INFO.description}
+              {description}
             </p>
           </div>
 
@@ -52,7 +66,7 @@ export default function Footer({ dict }: { dict?: FooterDict }) {
           <div className="space-y-4">
             <h3 className="font-semibold">{servicesTitle}</h3>
             <ul className="space-y-2 text-sm text-gray-400">
-              {SERVICES.map((service) => (
+              {servicesList.map((service) => (
                 <li key={service}>{service}</li>
               ))}
             </ul>
@@ -80,7 +94,7 @@ export default function Footer({ dict }: { dict?: FooterDict }) {
 
             {/* Social Media Links */}
             <div className="pt-4">
-              <h4 className="font-semibold text-sm mb-3">Follow Us</h4>
+              <h4 className="font-semibold text-sm mb-3">{followUs}</h4>
               <div className="flex gap-3">
                 <a
                   href={BUSINESS_INFO.socials.facebook}
@@ -126,25 +140,25 @@ export default function Footer({ dict }: { dict?: FooterDict }) {
         <Separator className="my-8 bg-primary-foreground/20" />
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-primary-foreground/80">
-          <p>© 2025 {BUSINESS_INFO.name}. All rights reserved.</p>
+          <p>© 2025 {BUSINESS_INFO.name}. {allRightsReserved}</p>
           <div className="flex gap-6">
             <a
               href="#"
               className="hover:text-primary-foreground transition-colors"
             >
-              Privacy Policy
+              {privacyPolicy}
             </a>
             <a
               href="#"
               className="hover:text-primary-foreground transition-colors"
             >
-              Terms of Service
+              {termsOfService}
             </a>
             <a
               href="#"
               className="hover:text-primary-foreground transition-colors"
             >
-              License Info
+              {licenseInfo}
             </a>
           </div>
         </div>

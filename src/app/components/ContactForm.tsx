@@ -130,28 +130,58 @@ export default function ContactForm({ dict, businessInfo }: { dict?: ContactDict
     urgency: "",
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const handleInputChange = (field: string, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!formData.name || !formData.email || !formData.phone || !formData.service) {
+    if (!formData.name || (!formData.email && !formData.phone) || !formData.service) {
       toast.error(t.validationRequired);
       return;
     }
 
-    toast.success(t.success);
+    setIsSubmitting(true);
 
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      service: "",
-      description: "",
-      urgency: "",
-    });
+    try {
+      const response = await fetch("https://formspree.io/f/mkovnpnv", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          service: formData.service,
+          description: formData.description,
+          urgency: formData.urgency,
+          _subject: `New Service Request from ${formData.name}`,
+        }),
+      });
+
+      if (response.ok) {
+        toast.success(t.success);
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          service: "",
+          description: "",
+          urgency: "",
+        });
+      } else {
+        toast.error("Failed to submit request. Please try again or contact us directly.");
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
+      toast.error("Failed to submit request. Please try again or contact us directly.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -216,7 +246,7 @@ export default function ContactForm({ dict, businessInfo }: { dict?: ContactDict
                 <ul className="space-y-2 text-sm text-gray-400">
                   {(businessInfo?.features ?? BUSINESS_INFO.features).map((feature) => (
                     <li key={feature} className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 bg-orange-600 rounded-full" />
+                      <span className="w-1.5 h-1.5 bg-green-500 rounded-full" />
                       {feature}
                     </li>
                   ))}
@@ -261,7 +291,6 @@ export default function ContactForm({ dict, businessInfo }: { dict?: ContactDict
                         onChange={(e) => handleInputChange("email", e.target.value)}
                         placeholder={t.placeholders.email}
                         className="bg-zinc-800 border-zinc-700 text-white placeholder-gray-500"
-                        required
                       />
                     </div>
                   </div>
@@ -278,7 +307,6 @@ export default function ContactForm({ dict, businessInfo }: { dict?: ContactDict
                         onChange={(e) => handleInputChange("phone", e.target.value)}
                         placeholder={t.placeholders.phone}
                         className="bg-zinc-800 border-zinc-700 text-white placeholder-gray-500"
-                        required
                       />
                     </div>
 
@@ -333,8 +361,13 @@ export default function ContactForm({ dict, businessInfo }: { dict?: ContactDict
                     />
                   </div>
 
-                  <Button type="submit" size="lg" className="w-full bg-orange-600 hover:bg-orange-700 text-white">
-                    {t.submit}
+                  <Button 
+                    type="submit" 
+                    size="lg" 
+                    className="w-full bg-orange-600 hover:bg-orange-700 text-white"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? "Sending..." : t.submit}
                   </Button>
 
                   <p className="text-sm text-gray-400 text-center">{t.requiredHint}</p>
