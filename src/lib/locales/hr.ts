@@ -55,15 +55,15 @@ const hr = {
   hero: {
     title: "Usluge kućnog majstora u Dubrovniku",
     paragraphs: [
-      "Hvala vam što ste navratili.",
-      "Ja sam Đani, lokalni majstor i stojim vam na raspolaganju za sve poslove održavanja doma i apartmana.",
-      "Bavim se redovnim održavanjem nekretnina, pripremom apartmana prije sezone, kao i raznim popravcima i zahvatima – od montaže namještaja do uređenja okućnice.",
-      "Radim uredno, na vrijeme i odgovorno. Držim se dogovora i volim da je posao napravljen kako treba.",
-      "Vi bez brige, ja ću se pobrinuti za sve ostalo.",
+      "Bok, ja sam Đani.",
+      "Ako vam treba majstor koji se javlja, dolazi i rješava problem, na pravom ste mjestu.",
+      "Radim sitne popravke, završne građevinske radove i redovno održavanje domova, apartmana i kuća za odmor.",
+      "Rješavam sve ono što se često odgađa, od manjih kvarova i popravaka do pripreme prostora prije i nakon sezone.",
+      "Javite se ako vam treba meštar na kojega možete računati.",
     ],
-    bullets: ["Organiziran", "Pouzdan i iskren", "Besplatna procjena"],
+    bullets: ["Organiziran", "Pouzdan i pošten", "Besplatna procjena"],
     buttons: {
-      getFreeQuote: "Besplatna procjena",
+      getFreeQuote: "Pošaljite upit",
       call: "Zovi",
     },
   },
@@ -212,7 +212,7 @@ const hr = {
   contact: {
     title: "Zatraži uslugu",
     subtitle:
-      "Pošalji upit i dobij besplatnu procjenu. Odgovaramo na sve upite unutar 24 sata.",
+      "Pošalji upit i dobij besplatnu procjenu. Odgovaramo na sve upite u roku od 24 sata.",
 
     infoTitle: "Kontakt informacije",
     infoSubtitle: "Javi se direktno",
@@ -244,10 +244,10 @@ const hr = {
     submit: "Pošalji upit",
 
     requiredHint:
-      "* Obavezna polja. Unesi email ili broj telefona (ili oboje). Javljamo se unutar 24 sata radi dogovora i besplatne procjene.",
+      "* Obavezna polja. Unesi email ili broj telefona (ili oboje). Javljamo se u roku od 24 sata radi dogovora i besplatne procjene.",
 
     validationRequired: "Molim ispuni sva obavezna polja i email ili broj telefona",
-    success: "Upit je poslan! Javit ćemo se unutar 24 sata.",
+    success: "Upit je poslan! Javit ćemo se u roku od 24 sata.",
 
     smallText: {
       callAnytime: "Zovi ili pošalji poruku",
