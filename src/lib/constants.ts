@@ -21,8 +21,8 @@ export const BUSINESS_INFO = {
     "Reliable service you can trust"
   ],
   socials: {
-    facebook: "https://web.facebook.com/mestarudiru/?locale=hr_HR&_rdc=1&_rdr",
-    instagram: "https://www.instagram.com/handymandubrovnik?igsh=MWg3emFxb3U1OXQ5bg%3D%3D&utm_source=qr", 
+    facebook: "https://www.facebook.com/mestarudiru",
+    instagram: "https://www.instagram.com/handymandubrovnik", 
     google: "https://share.google/eDwIoaD3Qawvv1HE8"
   }
 } as const;
