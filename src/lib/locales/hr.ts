@@ -112,7 +112,7 @@ const hr = {
       "Besplatne procjene za sve projekte",
       "Pouzdana usluga kojoj možete vjerovati",
     ],
-    serviceArea: "Područje Dubrovnika",
+    serviceArea: "Dubrovnika",
     serviceRadius: "Radius od 50 km",
     urgencyLevels: [
       { value: "asap", label: "Što prije (u roku 1-2 dana)" },
@@ -148,7 +148,7 @@ const hr = {
           "Redovite kontrole",
           "Preventivna briga",
           "Hitne intervencije",
-          "Mir u glavi",
+          "Sigurnost",
         ],
       },
       repairs: {
@@ -186,17 +186,17 @@ const hr = {
       },
       moisture: {
         title: "Vlaga i plijesan",
-        description: "Dijagnostika i smanjenje vlage prije većih šteta.",
+        description: "Dijagnostika, sanacija i prevencija problema s vlagom.",
         image: "/images/Vlaga.png",
         icon: "Wind",
-        features: ["Utvrdimo uzrok", "Ventilacija", "Sušenje/zaštita", "Savjet za prevenciju"],
+        features: ["Utvrdimo uzrok", "Sušenje i ventilacija", "Sanacija zidova", "Savjet za prevenciju"],
       },
       lights: {
         title: "Rasvjeta / prekidači / utičnice",
-        description: "Zamjena i ugradnja uobičajenih kućnih elemenata rasvjete.",
+        description: "Zamjena i ugradnja rasvjete, prekidača i utičnica.",
         image: "/images/Lights.png",
         icon: "Zap",
-        features: ["Sigurna ugradnja", "Brza usluga", "Čisto zatvaranje", "Standardne zamjene"],
+        features: ["Zamjena žarulja i lampi", "Popravak prekidača", "Popravak utičnica", "Sigurna izvedba"],
       },
       garden: {
         title: "Vrt i okućnica",
@@ -207,7 +207,7 @@ const hr = {
       },
       cleaning: {
         title: "Dezinfekcija i dubinsko čišćenje",
-        description: "Temeljito čišćenje i dezinfekcija (idealno za turnover).",
+        description: "Temeljito čišćenje i dezinfekcija (idealno za smjene gostiju).",
         image: "/images/Cleaning.png",
         icon: "Clock",
         features: ["Dubinsko čišćenje", "Dezinfekcija", "Kupaonice i kuhinje", "Spremno za goste"],
@@ -259,6 +259,7 @@ const hr = {
       callAnytime: "Zovi ili pošalji poruku",
       emailForQuotes: "Email za ponude",
       emergency: "Moguće hitne intervencije",
+      serving: "Pokrivamo područje",
     },
   } satisfies ContactDict,
 };

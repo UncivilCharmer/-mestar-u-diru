@@ -293,6 +293,7 @@ const en = {
       callAnytime: "Call or text anytime",
       emailForQuotes: "Email for quotes",
       emergency: "Emergency service available",
+      serving: "Serving",
     },
   } satisfies ContactDict,
 };

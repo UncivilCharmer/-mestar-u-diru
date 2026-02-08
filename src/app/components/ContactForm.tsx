@@ -53,6 +53,7 @@ type ContactDict = {
     callAnytime?: string;
     emailForQuotes?: string;
     emergency?: string;
+    serving?: string;
   };
 };
 
@@ -117,6 +118,7 @@ export default function ContactForm({ dict, businessInfo }: { dict?: ContactDict
         callAnytime: dict?.smallText?.callAnytime ?? "Call or text anytime",
         emailForQuotes: dict?.smallText?.emailForQuotes ?? "Email for quotes",
         emergency: dict?.smallText?.emergency ?? "Emergency service available",
+        serving: dict?.smallText?.serving ?? "Serving",
       },
     };
   }, [dict]);
@@ -203,7 +205,7 @@ export default function ContactForm({ dict, businessInfo }: { dict?: ContactDict
 
               <CardContent className="space-y-4">
                 <div className="flex items-center gap-3">
-                  <Phone className="w-5 h-5 text-orange-600" />
+                  <Phone className="w-5 h-5 text-yellow-500" />
                   <div>
                     <p className="font-medium text-white hover:underline">
                       <a href={`tel:${BUSINESS_INFO.phone}`}>{BUSINESS_INFO.phone}</a>
@@ -213,7 +215,7 @@ export default function ContactForm({ dict, businessInfo }: { dict?: ContactDict
                 </div>
 
                 <div className="flex items-center gap-3">
-                  <Mail className="w-5 h-5 text-orange-600" />
+                  <Mail className="w-5 h-5 text-yellow-500" />
                   <div>
                     <p className="font-medium text-white hover:underline">
                       <a href={`mailto:${BUSINESS_INFO.email}`}>{BUSINESS_INFO.email}</a>
@@ -223,15 +225,15 @@ export default function ContactForm({ dict, businessInfo }: { dict?: ContactDict
                 </div>
 
                 <div className="flex items-center gap-3">
-                  <MapPin className="w-5 h-5 text-orange-600" />
+                  <MapPin className="w-5 h-5 text-yellow-500" />
                   <div>
-                    <p className="font-medium text-white">Serving {businessInfo?.serviceArea ?? BUSINESS_INFO.serviceArea}</p>
+                    <p className="font-medium text-white">{t.smallText.serving} {businessInfo?.serviceArea ?? BUSINESS_INFO.serviceArea}</p>
                     <p className="text-sm text-gray-400">{businessInfo?.serviceRadius ?? BUSINESS_INFO.serviceRadius}</p>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-3">
-                  <Clock className="w-5 h-5 text-orange-600" />
+                  <Clock className="w-5 h-5 text-yellow-500" />
                   <div>
                     <p className="font-medium text-white">{BUSINESS_INFO.hours}</p>
                     <p className="text-sm text-gray-400">{t.smallText.emergency}</p>
@@ -364,7 +366,7 @@ export default function ContactForm({ dict, businessInfo }: { dict?: ContactDict
                   <Button 
                     type="submit" 
                     size="lg" 
-                    className="w-full bg-orange-600 hover:bg-orange-700 text-white"
+                    className="w-full bg-green-600 hover:bg-green-700 text-white"
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? "Sending..." : t.submit}
