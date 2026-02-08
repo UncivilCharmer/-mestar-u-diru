@@ -48,6 +48,7 @@ type ContactDict = {
     callAnytime: string;
     emailForQuotes: string;
     emergency: string;
+    serving: string;
   };
 };
 
