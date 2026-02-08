@@ -80,6 +80,12 @@ const en = {
       "Landscaping & Gardening",
       "Odd Jobs & Errands",
     ],
+    guaranteesList: [
+      "Organized & On Time",
+      "Free Estimates",
+      "Honest & Reliable",
+      "100% Satisfaction Guarantee",
+    ],
     servicesTitle: "Services",
     contactTitle: "Contact",
     businessInfoTitle: "Business Info",

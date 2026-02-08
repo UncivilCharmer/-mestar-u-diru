@@ -11,6 +11,7 @@ import {
 type FooterDict = {
   description?: string;
   servicesList?: string[];
+  guaranteesList?: string[];
   servicesTitle?: string;
   contactTitle?: string;
   businessInfoTitle?: string;
@@ -32,6 +33,7 @@ type FooterDict = {
 export default function Footer({ dict }: { dict?: FooterDict }) {
   const description = dict?.description ?? BUSINESS_INFO.description;
   const servicesList = dict?.servicesList ?? SERVICES;
+  const guaranteesList = dict?.guaranteesList ?? BUSINESS_INFO.guarantees;
   const servicesTitle = dict?.servicesTitle ?? "Services";
   const contactTitle = dict?.contactTitle ?? "Contact";
   const businessInfoTitle = dict?.businessInfoTitle ?? "Business Info";
@@ -87,7 +89,7 @@ export default function Footer({ dict }: { dict?: FooterDict }) {
           <div className="space-y-4">
             <h3 className="font-semibold">{businessInfoTitle}</h3>
             <ul className="space-y-2 text-sm text-primary-foreground/80">
-              {BUSINESS_INFO.guarantees.map((guarantee) => (
+              {guaranteesList.map((guarantee) => (
                 <li key={guarantee}>{guarantee}</li>
               ))}
             </ul>

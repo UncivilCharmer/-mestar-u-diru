@@ -81,6 +81,12 @@ const hr = {
       "Vrt i okućnica",
       "Dezinfekcija i dubinsko čišćenje",
     ],
+    guaranteesList: [
+      "Organiziran i na vrijeme",
+      "Besplatna procjena",
+      "Pošten i pouzdan",
+      "100% jamstvo zadovoljstva",
+    ],
     servicesTitle: "Usluge",
     contactTitle: "Kontakt",
     businessInfoTitle: "Informacije",
