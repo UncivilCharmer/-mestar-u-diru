@@ -4,7 +4,7 @@ import { Hammer } from "lucide-react";
 import {
   FacebookIcon,
   InstagramIcon,
-  XIcon,
+  GoogleIcon,
   YouTubeIcon,
 } from "@/components/ui/social-icons";
 
@@ -117,13 +117,13 @@ export default function Footer({ dict }: { dict?: FooterDict }) {
                   <InstagramIcon className="w-4 h-4" />
                 </a>
                 <a
-                  href={BUSINESS_INFO.socials.twitter}
+                  href={BUSINESS_INFO.socials.google}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-8 h-8 bg-primary-foreground/10 hover:bg-primary-foreground/20 rounded-full flex items-center justify-center transition-colors"
-                  aria-label="Follow us on Twitter"
+                  aria-label="Leave us a Google Review"
                 >
-                  <XIcon className="w-4 h-4" />
+                  <GoogleIcon className="w-4 h-4" />
                 </a>
                 <a
                   href={BUSINESS_INFO.socials.youtube}
