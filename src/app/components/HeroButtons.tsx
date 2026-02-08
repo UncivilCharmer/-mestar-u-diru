@@ -22,7 +22,7 @@ export function HeroButtons({ getFreeQuote = "Get Free Quote", call = "Call", po
         {getFreeQuote}
       </Button>
       <a href={`tel:${BUSINESS_INFO.phone}`} className="w-full sm:w-auto">
-        <Button variant="outline" size="lg" className="w-full px-8 bg-yellow-400 hover:bg-yellow-500 text-black border-yellow-400 font-semibold">
+        <Button variant="outline" size="lg" className="w-full px-8 bg-yellow-400 hover:bg-yellow-500 text-black border-yellow-400 font-semibold flex items-center justify-center">
           {call} {BUSINESS_INFO.phone}
         </Button>
       </a>

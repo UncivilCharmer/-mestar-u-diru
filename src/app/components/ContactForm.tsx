@@ -196,7 +196,7 @@ export default function ContactForm({ dict, businessInfo }: { dict?: ContactDict
   };
 
   return (
-    <section id="contact-form" className="py-12 px-4 bg-black">
+    <section id="contact-form" className="pt-8 pb-12 px-4 bg-black">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">{t.title}</h2>
