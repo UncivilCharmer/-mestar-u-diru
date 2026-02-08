@@ -1,4 +1,3 @@
-// REPLACE ENTIRE FILE: src/lib/locales/hr.ts
 type ServiceItem = {
   title: string;
   description: string;
@@ -20,18 +19,16 @@ type ContactDict = {
   formSubtitle: string;
 
   labels: {
-    fullName: string;
-    email: string;
-    phone: string;
+    name: string;
+    contact: string;
     urgency: string;
     service: string;
     description: string;
   };
 
   placeholders: {
-    fullName: string;
-    email: string;
-    phone: string;
+    name: string;
+    contact: string;
     urgency: string;
     service: string;
     description: string;
@@ -43,6 +40,9 @@ type ContactDict = {
 
   validationRequired: string;
   success: string;
+
+  marketingConsent: string;
+  privacyNotice: string;
 
   smallText: {
     callAnytime: string;
@@ -66,6 +66,7 @@ const hr = {
     buttons: {
       getFreeQuote: "Pošaljite upit",
       call: "Zovi",
+      portfolio: "Pogledaj radove",
     },
   },
 
@@ -230,18 +231,16 @@ const hr = {
     formSubtitle: "Ispuni obrazac i javimo se s procjenom",
 
     labels: {
-      fullName: "Ime i prezime *",
-      email: "Email adresa",
-      phone: "Broj telefona",
+      name: "Ime *",
+      contact: "Kontakt (telefon / email ili oboje) *",
       urgency: "Koliko je hitno?",
-      service: "Vrsta usluge *",
+      service: "Vrsta usluge",
       description: "Opis posla",
     },
 
     placeholders: {
-      fullName: "Upiši ime i prezime",
-      email: "Upiši email",
-      phone: "",
+      name: "Upiši ime",
+      contact: "Upiši broj telefona ili email",
       urgency: "Odaberi hitnost",
       service: "Odaberi uslugu",
       description:
@@ -251,10 +250,13 @@ const hr = {
     submit: "Pošalji upit",
 
     requiredHint:
-      "* Obavezna polja. Unesi email ili broj telefona (ili oboje). Javljamo se u roku od 24 sata radi dogovora i besplatne procjene.",
+      "* Obavezna polja. Javljamo se u roku od 24 sata radi dogovora i besplatne procjene.",
 
-    validationRequired: "Molim ispuni sva obavezna polja i email ili broj telefona",
+    validationRequired: "Molim ispuni sva obavezna polja",
     success: "Upit je poslan! Javit ćemo se u roku od 24 sata.",
+
+    marketingConsent: "Želim primati obavijesti o novim uslugama i promotivnim ponudama",
+    privacyNotice: "Pritiskom na gumb prihvaćate Politiku privatnosti.",
 
     smallText: {
       callAnytime: "Zovi ili pošalji poruku",
@@ -294,6 +296,78 @@ const hr = {
         title: "Uređenje vrta i okućnice",
         description: "Čišćenje, obrezivanje i uređenje vanjskog prostora",
       },
+    },
+  },
+
+  privacy: {
+    title: "Politika Privatnosti",
+    lastUpdated: "Zadnje ažurirano: Veljača 2026",
+    sections: [
+      {
+        heading: "1. Uvod",
+        paragraphs: [
+          "SVOJ ĐIR, Obrt za usluge, vl. Đani Cumeljan (\"mi\", \"naš\", \"obrt\") poštuje vašu privatnost. Ova politika objašnjava kako prikupljamo i koristimo vaše osobne podatke kada koristite našu web stranicu i kontakt formu.",
+        ],
+      },
+      {
+        heading: "2. Koje podatke prikupljamo",
+        paragraphs: [
+          "Kroz kontakt formu prikupljamo sljedeće podatke:",
+        ],
+        list: [
+          "Ime i prezime",
+          "Email adresa ili broj telefona (po vašem izboru)",
+          "Vrsta usluge i detalji projekta koje nam pošaljete",
+          "IP adresa (automatski, radi sigurnosti)",
+        ],
+      },
+      {
+        heading: "3. Zašto prikupljamo podatke",
+        paragraphs: [
+          "Vaše podatke koristimo isključivo za:",
+        ],
+        list: [
+          "Odgovor na vaš upit i dogovor oko termina",
+          "Izradu besplatne procjene cijene",
+          "Moguću komunikaciju o sličnim ili dodatnim uslugama koje nudimo - samo ako ste dali pristanak i samo dok ne zatražite isključenje iz takvih komunikacija",
+        ],
+      },
+      {
+        heading: "4. Dijeljenje podataka s trećim stranama",
+        paragraphs: [
+          "Ne prodajemo niti iznajmljujemo vaše podatke.",
+          "Vaše podatke obrađuje Formspree (formspree.io), usluga za procesiranje kontakt formi. Formspree ima vlastitu politiku privatnosti u skladu sa GDPR-om.",
+        ],
+      },
+      {
+        heading: "5. Koliko dugo čuvamo podatke",
+        paragraphs: [
+          "Vaše podatke čuvamo dok je potrebno za odgovor na upit ili 12 mjeseci nakon zadnje komunikacije, osim ako ne zatražite ranije brisanje.",
+        ],
+      },
+      {
+        heading: "6. Vaša prava (GDPR)",
+        paragraphs: [
+          "Imate pravo:",
+        ],
+        list: [
+          "Zatražiti uvid u vaše podatke",
+          "Zatražiti ispravak netočnih podataka",
+          "Zatražiti brisanje vaših podataka",
+          "Odustati od komunikacija o dodatnim uslugama (marketing) u bilo kojem trenutku",
+          "Uložiti prigovor Agenciji za zaštitu osobnih podataka (azop.hr)",
+        ],
+      },
+      {
+        heading: "7. Sigurnost podataka",
+        paragraphs: [
+          "Vaše podatke čuvamo uz razumne tehničke i organizacijske mjere zaštite.",
+        ],
+      },
+    ],
+    contact: {
+      heading: "Kontakt za pitanja o privatnosti",
+      text: "Ako imate pitanja o ovoj politici ili želite ostvariti svoja prava, kontaktirajte nas:",
     },
   },
 };

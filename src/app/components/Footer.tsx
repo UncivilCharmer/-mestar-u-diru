@@ -1,6 +1,7 @@
 import { Separator } from "@/components/ui/separator";
-import { BUSINESS_INFO, SERVICES } from "@/lib/constants";
+import { BUSINESS_INFO } from "@/lib/constants";
 import { Hammer } from "lucide-react";
+import Link from "next/link";
 import {
   FacebookIcon,
   InstagramIcon,
@@ -29,18 +30,14 @@ type FooterDict = {
   };
 };
 
-export default function Footer({ dict }: { dict?: FooterDict }) {
+export default function Footer({ dict, locale = "hr" }: { dict?: FooterDict; locale?: string }) {
   const description = dict?.description ?? BUSINESS_INFO.description;
-  const servicesList = dict?.servicesList ?? SERVICES;
   const guaranteesList = dict?.guaranteesList ?? BUSINESS_INFO.guarantees;
-  const servicesTitle = dict?.servicesTitle ?? "Services";
   const contactTitle = dict?.contactTitle ?? "Contact";
   const businessInfoTitle = dict?.businessInfoTitle ?? "Business Info";
   const followUs = dict?.followUs ?? "Follow Us";
   const allRightsReserved = dict?.allRightsReserved ?? "All rights reserved.";
   const privacyPolicy = dict?.privacyPolicy ?? "Privacy Policy";
-  const termsOfService = dict?.termsOfService ?? "Terms of Service";
-  const licenseInfo = dict?.licenseInfo ?? "License Info";
   const labels = {
     phone: dict?.labels?.phone ?? "Phone:",
     email: dict?.labels?.email ?? "Email:",
@@ -51,7 +48,7 @@ export default function Footer({ dict }: { dict?: FooterDict }) {
   return (
     <footer className="bg-zinc-950 text-white py-12 px-4 border-t border-zinc-800">
       <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Business Info */}
           <div className="space-y-4">
             <div className="flex items-center gap-2">
@@ -61,16 +58,6 @@ export default function Footer({ dict }: { dict?: FooterDict }) {
             <p className="text-sm text-gray-400">
               {description}
             </p>
-          </div>
-
-          {/* Services */}
-          <div className="space-y-4">
-            <h3 className="font-semibold">{servicesTitle}</h3>
-            <ul className="space-y-2 text-sm text-gray-400">
-              {servicesList.map((service) => (
-                <li key={service}>{service}</li>
-              ))}
-            </ul>
           </div>
 
           {/* Contact */}
@@ -131,27 +118,16 @@ export default function Footer({ dict }: { dict?: FooterDict }) {
 
         <Separator className="my-8 bg-primary-foreground/20" />
 
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-primary-foreground/80">
-          <p>© 2025 {BUSINESS_INFO.name}. {allRightsReserved}</p>
-          <div className="flex gap-6">
-            <a
-              href="#"
-              className="hover:text-primary-foreground transition-colors"
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400">
+          <p>SVOJ ĐIR, Obrt za usluge, vl. Đani Cumeljan</p>
+          <div className="flex items-center gap-6">
+            <Link
+              href={`/${locale}/privacy`}
+              className="hover:text-primary-foreground transition-colors text-xs"
             >
               {privacyPolicy}
-            </a>
-            <a
-              href="#"
-              className="hover:text-primary-foreground transition-colors"
-            >
-              {termsOfService}
-            </a>
-            <a
-              href="#"
-              className="hover:text-primary-foreground transition-colors"
-            >
-              {licenseInfo}
-            </a>
+            </Link>
+            <p>© 2025 {BUSINESS_INFO.name}. {allRightsReserved}</p>
           </div>
         </div>
       </div>

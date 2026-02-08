@@ -8,6 +8,7 @@ type HeroDict = {
   buttons?: {
     getFreeQuote?: string;
     call?: string;
+    portfolio?: string;
   };
 };
 
@@ -28,6 +29,7 @@ export default function Hero({ dict }: { dict?: HeroDict }) {
   const buttons = {
     getFreeQuote: dict?.buttons?.getFreeQuote ?? "Get Free Quote",
     call: dict?.buttons?.call ?? "Call",
+    portfolio: dict?.buttons?.portfolio ?? "Our Work",
   };
 
   return (
@@ -42,9 +44,9 @@ export default function Hero({ dict }: { dict?: HeroDict }) {
             ))}
           </div>
 
-          <HeroButtons getFreeQuote={buttons.getFreeQuote} call={buttons.call} />
+          <HeroButtons getFreeQuote={buttons.getFreeQuote} call={buttons.call} portfolio={buttons.portfolio} />
 
-          <div className="flex flex-wrap gap-6 text-sm text-gray-400">
+          <div className="flex flex-col sm:flex-row sm:flex-wrap gap-4 sm:gap-6 text-sm text-gray-400">
             {bullets.map((b, i) => (
               <div key={i} className="flex items-center gap-2">
                 <span className="w-2 h-2 bg-green-500 rounded-full" />

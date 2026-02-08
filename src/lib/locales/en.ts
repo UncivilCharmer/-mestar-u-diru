@@ -1,4 +1,3 @@
-// REPLACE ENTIRE FILE: src/lib/locales/en.ts
 type ServiceItem = {
   title: string;
   description: string;
@@ -20,18 +19,16 @@ type ContactDict = {
   formSubtitle: string;
 
   labels: {
-    fullName: string;
-    email: string;
-    phone: string;
+    name: string;
+    contact: string;
     urgency: string;
     service: string;
     description: string;
   };
 
   placeholders: {
-    fullName: string;
-    email: string;
-    phone: string;
+    name: string;
+    contact: string;
     urgency: string;
     service: string;
     description: string;
@@ -43,6 +40,9 @@ type ContactDict = {
 
   validationRequired: string;
   success: string;
+
+  marketingConsent: string;
+  privacyNotice: string;
 
   smallText: {
     callAnytime: string;
@@ -65,6 +65,7 @@ const en = {
     buttons: {
       getFreeQuote: "Get Free Quote",
       call: "Call",
+      portfolio: "View Portfolio",
     },
   },
 
@@ -264,18 +265,16 @@ const en = {
     formSubtitle: "Fill out the form below and we'll get back to you with a quote",
 
     labels: {
-      fullName: "Full Name *",
-      email: "Email Address",
-      phone: "Phone Number",
+      name: "Name *",
+      contact: "Contact (Phone / Email or both) *",
       urgency: "How urgent is this?",
-      service: "Type of Service Needed *",
+      service: "Type of Service Needed",
       description: "Project Description",
     },
 
     placeholders: {
-      fullName: "Enter your full name",
-      email: "Enter your email",
-      phone: "",
+      name: "Enter your name",
+      contact: "Enter phone number or email",
       urgency: "Select urgency level",
       service: "Select a service",
       description:
@@ -285,10 +284,13 @@ const en = {
     submit: "Submit Request",
 
     requiredHint:
-      "* Required fields. Please provide email or phone (or both). We'll contact you within 24 hours to discuss your project and provide a free estimate.",
+      "* Required fields. We'll contact you within 24 hours to discuss your project and provide a free estimate.",
 
-    validationRequired: "Please fill in all required fields and provide email or phone number",
+    validationRequired: "Please fill in all required fields",
     success: "Request submitted successfully! We'll contact you within 24 hours.",
+
+    marketingConsent: "I want to receive updates about new services and offers",
+    privacyNotice: "By submitting this form, you agree to our Privacy Policy.",
 
     smallText: {
       callAnytime: "Call or text anytime",
@@ -328,6 +330,78 @@ const en = {
         title: "Garden & Landscaping",
         description: "Cleanup, pruning and outdoor space improvements",
       },
+    },
+  },
+
+  privacy: {
+    title: "Privacy Policy",
+    lastUpdated: "Last updated: February 2026",
+    sections: [
+      {
+        heading: "1. Introduction",
+        paragraphs: [
+          "SVOJ ĐIR, Handyman Services, owned by Đani Cumeljan (\"we\", \"our\", \"business\") respects your privacy. This policy explains how we collect and use your personal data when you use our website and contact form.",
+        ],
+      },
+      {
+        heading: "2. What data we collect",
+        paragraphs: [
+          "Through our contact form, we collect the following data:",
+        ],
+        list: [
+          "Full name",
+          "Email address or phone number (your choice)",
+          "Service type and project details you submit",
+          "IP address (automatically, for security purposes)",
+        ],
+      },
+      {
+        heading: "3. Why we collect data",
+        paragraphs: [
+          "We use your data exclusively for:",
+        ],
+        list: [
+          "Responding to your inquiry and scheduling appointments",
+          "Providing free estimates",
+          "Possible communication about similar or additional services we offer - only with your consent and only until you request to opt out of such communications",
+        ],
+      },
+      {
+        heading: "4. Sharing data with third parties",
+        paragraphs: [
+          "We do not sell or rent your data.",
+          "Your data is processed by Formspree (formspree.io), a contact form processing service. Formspree has its own privacy policy in compliance with GDPR.",
+        ],
+      },
+      {
+        heading: "5. How long we keep data",
+        paragraphs: [
+          "We keep your data as long as necessary to respond to your inquiry or for 12 months after the last communication, unless you request earlier deletion.",
+        ],
+      },
+      {
+        heading: "6. Your rights (GDPR)",
+        paragraphs: [
+          "You have the right to:",
+        ],
+        list: [
+          "Request access to your data",
+          "Request correction of inaccurate data",
+          "Request deletion of your data",
+          "Opt out of marketing communications about additional services at any time",
+          "File a complaint with the Data Protection Agency",
+        ],
+      },
+      {
+        heading: "7. Data security",
+        paragraphs: [
+          "We protect your data with reasonable technical and organizational security measures.",
+        ],
+      },
+    ],
+    contact: {
+      heading: "Contact for privacy questions",
+      text: "If you have questions about this policy or wish to exercise your rights, contact us:",
     },
   },
 };

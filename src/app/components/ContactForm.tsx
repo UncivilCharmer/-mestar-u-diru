@@ -1,6 +1,8 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -24,18 +26,16 @@ type ContactDict = {
   formSubtitle?: string;
 
   labels?: {
-    fullName?: string;
-    email?: string;
-    phone?: string;
+    name?: string;
+    contact?: string;
     urgency?: string;
     service?: string;
     description?: string;
   };
 
   placeholders?: {
-    fullName?: string;
-    email?: string;
-    phone?: string;
+    name?: string;
+    contact?: string;
     urgency?: string;
     service?: string;
     description?: string;
@@ -47,6 +47,9 @@ type ContactDict = {
 
   validationRequired?: string;
   success?: string;
+
+  marketingConsent?: string;
+  privacyNotice?: string;
 
   // mali opisi uz info kartice (opcionalno)
   smallText?: {
@@ -66,6 +69,9 @@ type BusinessInfoDict = {
 };
 
 export default function ContactForm({ dict, businessInfo }: { dict?: ContactDict; businessInfo?: BusinessInfoDict }) {
+  const pathname = usePathname();
+  const locale = pathname.split('/')[1] || 'hr';
+
   const t = useMemo(() => {
     return {
       title: dict?.title ?? "Request a Service",
@@ -84,18 +90,16 @@ export default function ContactForm({ dict, businessInfo }: { dict?: ContactDict
         "Fill out the form below and we'll get back to you with a quote",
 
       labels: {
-        fullName: dict?.labels?.fullName ?? "Full Name *",
-        email: dict?.labels?.email ?? "Email Address *",
-        phone: dict?.labels?.phone ?? "Phone Number *",
+        name: dict?.labels?.name ?? "Name *",
+        contact: dict?.labels?.contact ?? "Contact (Phone / Email or both) *",
         urgency: dict?.labels?.urgency ?? "How urgent is this?",
-        service: dict?.labels?.service ?? "Type of Service Needed *",
+        service: dict?.labels?.service ?? "Type of Service Needed",
         description: dict?.labels?.description ?? "Project Description",
       },
 
       placeholders: {
-        fullName: dict?.placeholders?.fullName ?? "Enter your full name",
-        email: dict?.placeholders?.email ?? "Enter your email",
-        phone: dict?.placeholders?.phone ?? BUSINESS_INFO.phone,
+        name: dict?.placeholders?.name ?? "Enter your name",
+        contact: dict?.placeholders?.contact ?? "Enter phone number or email",
         urgency: dict?.placeholders?.urgency ?? "Select urgency level",
         service: dict?.placeholders?.service ?? "Select a service",
         description:
@@ -114,6 +118,9 @@ export default function ContactForm({ dict, businessInfo }: { dict?: ContactDict
         dict?.success ??
         "Request submitted successfully! We'll contact you within 24 hours.",
 
+      marketingConsent: dict?.marketingConsent ?? "I want to receive updates about new services and offers",
+      privacyNotice: dict?.privacyNotice ?? "By submitting this form, you agree to our Privacy Policy.",
+
       smallText: {
         callAnytime: dict?.smallText?.callAnytime ?? "Call or text anytime",
         emailForQuotes: dict?.smallText?.emailForQuotes ?? "Email for quotes",
@@ -125,13 +132,13 @@ export default function ContactForm({ dict, businessInfo }: { dict?: ContactDict
 
   const [formData, setFormData] = useState({
     name: "",
-    email: "",
-    phone: "",
+    contact: "",
     service: "",
     description: "",
     urgency: "",
   });
 
+  const [marketingConsent, setMarketingConsent] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleInputChange = (field: string, value: string) => {
@@ -141,7 +148,7 @@ export default function ContactForm({ dict, businessInfo }: { dict?: ContactDict
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!formData.name || (!formData.email && !formData.phone) || !formData.service) {
+    if (!formData.name || !formData.contact) {
       toast.error(t.validationRequired);
       return;
     }
@@ -156,11 +163,13 @@ export default function ContactForm({ dict, businessInfo }: { dict?: ContactDict
         },
         body: JSON.stringify({
           name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
+          contact: formData.contact,
           service: formData.service,
           description: formData.description,
           urgency: formData.urgency,
+          marketingConsent: marketingConsent 
+            ? "✅ DA - Korisnik ŽELI primati obavijesti o novim uslugama i promotivnim ponudama!" 
+            : "Ne",
           _subject: `New Service Request from ${formData.name}`,
         }),
       });
@@ -169,12 +178,12 @@ export default function ContactForm({ dict, businessInfo }: { dict?: ContactDict
         toast.success(t.success);
         setFormData({
           name: "",
-          email: "",
-          phone: "",
+          contact: "",
           service: "",
           description: "",
           urgency: "",
         });
+        setMarketingConsent(false);
       } else {
         toast.error("Failed to submit request. Please try again or contact us directly.");
       }
@@ -187,7 +196,7 @@ export default function ContactForm({ dict, businessInfo }: { dict?: ContactDict
   };
 
   return (
-    <section id="contact-form" className="py-20 px-4 bg-black">
+    <section id="contact-form" className="py-12 px-4 bg-black">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">{t.title}</h2>
@@ -270,48 +279,34 @@ export default function ContactForm({ dict, businessInfo }: { dict?: ContactDict
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label htmlFor="name" className="text-white">
-                        {t.labels.fullName}
+                        {t.labels.name}
                       </Label>
                       <Input
                         id="name"
                         value={formData.name}
                         onChange={(e) => handleInputChange("name", e.target.value)}
-                        placeholder={t.placeholders.fullName}
+                        placeholder={t.placeholders.name}
                         className="bg-zinc-800 border-zinc-700 text-white placeholder-gray-500"
                         required
                       />
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="email" className="text-white">
-                        {t.labels.email}
+                      <Label htmlFor="contact" className="text-white">
+                        {t.labels.contact}
                       </Label>
                       <Input
-                        id="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={(e) => handleInputChange("email", e.target.value)}
-                        placeholder={t.placeholders.email}
+                        id="contact"
+                        value={formData.contact}
+                        onChange={(e) => handleInputChange("contact", e.target.value)}
+                        placeholder={t.placeholders.contact}
                         className="bg-zinc-800 border-zinc-700 text-white placeholder-gray-500"
+                        required
                       />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="phone" className="text-white">
-                        {t.labels.phone}
-                      </Label>
-                      <Input
-                        id="phone"
-                        type="tel"
-                        value={formData.phone}
-                        onChange={(e) => handleInputChange("phone", e.target.value)}
-                        placeholder={t.placeholders.phone}
-                        className="bg-zinc-800 border-zinc-700 text-white placeholder-gray-500"
-                      />
-                    </div>
-
                     <div className="space-y-2">
                       <Label htmlFor="urgency" className="text-white">
                         {t.labels.urgency}
@@ -335,7 +330,7 @@ export default function ContactForm({ dict, businessInfo }: { dict?: ContactDict
                     <Label htmlFor="service" className="text-white">
                       {t.labels.service}
                     </Label>
-                    <Select value={formData.service} onValueChange={(value) => handleInputChange("service", value)} required>
+                    <Select value={formData.service} onValueChange={(value) => handleInputChange("service", value)}>
                       <SelectTrigger className="bg-zinc-800 border-zinc-700 text-white">
                         <SelectValue placeholder={t.placeholders.service} />
                       </SelectTrigger>
@@ -362,6 +357,41 @@ export default function ContactForm({ dict, businessInfo }: { dict?: ContactDict
                       rows={4}
                     />
                   </div>
+
+                  {/* Marketing Consent Checkbox */}
+                  <div className="flex items-start gap-3 py-4">
+                    <input
+                      type="checkbox"
+                      id="marketingConsent"
+                      checked={marketingConsent}
+                      onChange={(e) => setMarketingConsent(e.target.checked)}
+                      className="mt-1 w-4 h-4 rounded border-zinc-700 bg-zinc-800 text-green-600 focus:ring-green-500"
+                    />
+                    <label htmlFor="marketingConsent" className="text-sm text-gray-300 cursor-pointer">
+                      {t.marketingConsent ?? "Želim primati obavijesti o novim uslugama i ponudama"}
+                    </label>
+                  </div>
+
+                  {/* Privacy Notice */}
+                  <p className="text-xs text-gray-400 text-center pb-4">
+                    {locale === 'hr' ? (
+                      <>
+                        Pritiskom na gumb prihvaćate{" "}
+                        <Link href="/hr/privacy" className="text-green-500 hover:underline">
+                          Politiku privatnosti
+                        </Link>
+                        .
+                      </>
+                    ) : (
+                      <>
+                        By submitting this form, you agree to our{" "}
+                        <Link href="/en/privacy" className="text-green-500 hover:underline">
+                          Privacy Policy
+                        </Link>
+                        .
+                      </>
+                    )}
+                  </p>
 
                   <Button 
                     type="submit" 
