@@ -263,6 +263,39 @@ const hr = {
       serving: "Pokrivamo područje",
     },
   } satisfies ContactDict,
+
+  portfolio: {
+    title: "Naši Radovi",
+    subtitle: "Pogledaj primjere naših završenih projekata - prije i poslije",
+    before: "Prije",
+    after: "Poslije",
+    projects: {
+      "bathroom-renovation": {
+        title: "Renovacija kupaonice",
+        description: "Kompletna obnova kupaonice s keramikom i sanitarijama",
+      },
+      "electrical-repair": {
+        title: "Električne instalacije",
+        description: "Zamjena starih prekidača i utičnica, postavljanje LED rasvjete",
+      },
+      "furniture-assembly": {
+        title: "Sastavljanje namještaja",
+        description: "Montaža kuhinje i ormarića po mjeri",
+      },
+      "moisture-removal": {
+        title: "Sanacija vlage i plijesni",
+        description: "Uklanjanje vlage, obrada protiv plijesni i završna obrada",
+      },
+      "painting-work": {
+        title: "Soboslikarski radovi",
+        description: "Glačanje, kitanje i bojanje zidova i stropova",
+      },
+      "garden-cleanup": {
+        title: "Uređenje vrta i okućnice",
+        description: "Čišćenje, obrezivanje i uređenje vanjskog prostora",
+      },
+    },
+  },
 };
 
 export default hr;

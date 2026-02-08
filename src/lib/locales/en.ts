@@ -297,6 +297,39 @@ const en = {
       serving: "Serving",
     },
   } satisfies ContactDict,
+
+  portfolio: {
+    title: "Our Work",
+    subtitle: "See examples of our completed projects - before and after",
+    before: "Before",
+    after: "After",
+    projects: {
+      "bathroom-renovation": {
+        title: "Bathroom Renovation",
+        description: "Complete bathroom remodel with new tiles and fixtures",
+      },
+      "electrical-repair": {
+        title: "Electrical Work",
+        description: "Replaced old switches and outlets, installed LED lighting",
+      },
+      "furniture-assembly": {
+        title: "Furniture Assembly",
+        description: "Custom kitchen and cabinet installation",
+      },
+      "moisture-removal": {
+        title: "Moisture & Mold Removal",
+        description: "Moisture treatment, mold prevention and finishing",
+      },
+      "painting-work": {
+        title: "Painting Work",
+        description: "Wall smoothing, filling and painting walls and ceilings",
+      },
+      "garden-cleanup": {
+        title: "Garden & Landscaping",
+        description: "Cleanup, pruning and outdoor space improvements",
+      },
+    },
+  },
 };
 
 export default en;

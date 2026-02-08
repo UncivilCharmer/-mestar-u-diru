@@ -61,3 +61,43 @@ export const URGENCY_LEVELS = [
   { value: "normal", label: "Normal (within a week)" },
   { value: "flexible", label: "Flexible (anytime)" }
 ] as const;
+
+// Portfolio projects - before/after work examples
+export const PORTFOLIO_PROJECTS = [
+  {
+    id: "bathroom-renovation",
+    category: "renovation",
+    beforeImage: "/images/portfolio/bathroom-before.jpg",
+    afterImage: "/images/portfolio/bathroom-after.jpg",
+  },
+  {
+    id: "electrical-repair",
+    category: "electrical",
+    beforeImage: "/images/portfolio/electrical-before.jpg",
+    afterImage: "/images/portfolio/electrical-after.jpg",
+  },
+  {
+    id: "furniture-assembly",
+    category: "assembly",
+    beforeImage: "/images/portfolio/furniture-before.jpg",
+    afterImage: "/images/portfolio/furniture-after.jpg",
+  },
+  {
+    id: "moisture-removal",
+    category: "moisture",
+    beforeImage: "/images/portfolio/moisture-before.jpg",
+    afterImage: "/images/portfolio/moisture-after.jpg",
+  },
+  {
+    id: "painting-work",
+    category: "painting",
+    beforeImage: "/images/portfolio/painting-before.jpg",
+    afterImage: "/images/portfolio/painting-after.jpg",
+  },
+  {
+    id: "garden-cleanup",
+    category: "landscaping",
+    beforeImage: "/images/portfolio/garden-before.jpg",
+    afterImage: "/images/portfolio/garden-after.jpg",
+  },
+] as const;
