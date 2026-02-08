@@ -26,11 +26,13 @@ export function HeroButtons({ getFreeQuote = "Get Free Quote", call = "Call", po
           {call} {BUSINESS_INFO.phone}
         </Button>
       </a>
+      {/* Portfolio button hidden until images are ready
       <Link href={`/${locale}/portfolio`} className="w-full sm:w-auto">
         <Button variant="secondary" size="lg" className="w-full px-8 bg-zinc-800 hover:bg-zinc-700 text-white font-semibold">
           📸 {portfolio}
         </Button>
       </Link>
+      */}
     </div>
   );
 }
