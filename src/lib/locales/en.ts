@@ -136,7 +136,7 @@ const en = {
   },
 
   services: {
-    title: "What I Do",
+    title: "Services",
     subtitle:
       "Services for apartments and homes — from maintenance to seasonal preparation.",
     items: {

@@ -137,7 +137,7 @@ const hr = {
   },
 
   services: {
-    title: "Što radim",
+    title: "Usluge",
     subtitle:
       "Usluge za apartmane i kuće — od održavanja do pripreme prije sezone.",
     items: {
@@ -198,7 +198,7 @@ const hr = {
         description: "Zamjena i ugradnja rasvjete, prekidača i utičnica.",
         image: "/images/Lights.png",
         icon: "Zap",
-        features: ["Zamjena žarulja i lampi", "Popravak prekidača", "Popravak utičnica", "Sigurna izvedba"],
+        features: ["Zamjena žarulja i lampi", "Učvršćivanje prekidača / utičnica", "Zamjena prekidača / utičnica", "Sigurna izvedba"],
       },
       garden: {
         title: "Vrt i okućnica",
