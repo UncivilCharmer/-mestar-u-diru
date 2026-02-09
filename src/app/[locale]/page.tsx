@@ -1,5 +1,6 @@
 import Hero from "../components/Hero";
 import Services from "../components/Services";
+import Partners from "../components/Partners";
 import ContactForm from "../components/ContactForm";
 import Footer from "../components/Footer";
 import { Toaster } from "@/components/ui/sonner";
@@ -29,6 +30,12 @@ export default async function Page({
         items={dict?.services?.items ?? {}}
         title={dict?.services?.title ?? "What I Do"}
         subtitle={dict?.services?.subtitle ?? ""}
+      />
+      <Partners
+        items={dict?.partners?.items ?? {}}
+        title={dict?.partners?.title ?? "Our Partners"}
+        subtitle={dict?.partners?.subtitle ?? ""}
+        becomePartner={dict?.partners?.becomePartner}
       />
       <ContactForm dict={dict?.contact} businessInfo={dict?.businessInfo} />
       <Footer dict={dict?.footer} locale={locale} />

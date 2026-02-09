@@ -217,6 +217,30 @@ const hr = {
     } satisfies Record<string, ServiceItem>,
   },
 
+  partners: {
+    title: "Naš ponosan partner",
+    subtitle: "Naša misija je naći tim pouzdanih ljudi na koje uvijek možete računati.",
+    becomePartner: {
+      title: "Postani partner!",
+      description: "Ako nudiš usluge na području Dubrovnika i želiš surađivati s pouzdanim timom, slobodno se javi. Tražimo kvalitetne stručnjake koji dijele naše vrijednosti: točnost, kvalitetu i zadovoljstvo klijenata.",
+      cta: "Kontaktiraj nas",
+    },
+    items: {
+      luka: {
+        name: "Luka",
+        title: "Upoznajte Luku",
+        service: "Dubinsko čišćenje klime",
+        description: "U suradnji s provjerenim lokalnim partnerom nudimo dubinsko čišćenje klima uređaja, usmjereno na uklanjanje vlage, nečistoća i neugodnih mirisa.\n\nČišćenje se provodi temeljito i pažljivo, uz zaštitu prostora i uređaja, bez zahvata u rad sustava i bez servisiranja.\n\nOva usluga namijenjena je svima koji žele čišći zrak, ugodniji prostor i redovno održavanu klimu, posebno u apartmanima i prostorima koji se često koriste.",
+        image: "/images/daniluka.JPG",
+        features: [
+          "Dubinsko čišćenje klime",
+          "Uklanjanje nečistoća i mirisa",
+          "Bolja kvaliteta zraka i učinkovitost",
+        ],
+      },
+    },
+  },
+
   contact: {
     title: "Zatraži uslugu",
     subtitle:

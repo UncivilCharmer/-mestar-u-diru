@@ -251,6 +251,30 @@ const en = {
     } satisfies Record<string, ServiceItem>,
   },
 
+  partners: {
+    title: "Our Proud Partner",
+    subtitle: "Our mission is to find a team of reliable people you can always count on.",
+    becomePartner: {
+      title: "Become a Partner!",
+      description: "If you offer services in the Dubrovnik area and want to collaborate with a reliable team, feel free to reach out. We're looking for quality professionals who share our values: punctuality, quality, and customer satisfaction.",
+      cta: "Contact Us",
+    },
+    items: {
+      luka: {
+        name: "Luka",
+        title: "Meet Luka",
+        service: "Air Conditioning Deep Clean",
+        description: "In partnership with a trusted local professional, we offer comprehensive deep cleaning of air conditioning units, focusing on removing moisture, dirt, and unpleasant odors.\n\nThe cleaning is performed thoroughly and carefully, with protection for your space and equipment, without interfering with system operation or servicing.\n\nThis service is ideal for anyone seeking cleaner air, a more comfortable space, and regularly maintained AC, especially in apartments and frequently used spaces.",
+        image: "/images/daniluka.JPG",
+        features: [
+          "Deep AC cleaning",
+          "Dirt and odor removal",
+          "Better air quality and efficiency",
+        ],
+      },
+    },
+  },
+
   contact: {
     title: "Request a Service",
     subtitle:
