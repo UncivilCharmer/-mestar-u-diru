@@ -58,9 +58,9 @@ export default function Hero({ dict }: { dict?: HeroDict }) {
 
         <div className="relative">
           <ImageWithFallback
-            src="/images/hero.jpg.png"
+            src="/images/hero2.png"
             alt="Professional handyman with tools"
-            className="w-full h-[400px] object-cover rounded-lg shadow-lg"
+            className="w-full h-[550px] object-cover object-[50%_65%] rounded-lg shadow-lg"
           />
         </div>
       </div>
